@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
 function App() {
@@ -37,13 +37,14 @@ function App() {
           ) : (
             <ul>
               {tasks.map((task, index) => (
-                <li key={index}>{task}</li>
+                <li key={index}>{task}
+                <button onClick={() => deleteTask(index)} className='delete-btn'>Delete</button>
+                </li>
               ))}
             </ul>
           )}
         </div>
-      </div>
-      
+      </div> 
   );
 }
 
