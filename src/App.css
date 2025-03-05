@@ -1,18 +1,64 @@
+body{
+  background-color: #1e1e1e;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 .App{
   text-align: center;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   margin-top: 20px;
 }
 
 h1{
-  color: #333;
+  color: #f0f0f0;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.task-input{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input{
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button{
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover{
+  background-color: #0056b3;
 }
 
 .task-list{
-  margin: 20px auto;
-  width: 300px;
+  width: 100%;
   text-align: left;
-  color: black;
 }
 
 ul{
@@ -25,10 +71,10 @@ li{
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  border-radius: 8px;
+  background-color: #3a3a3a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
 }
 
 .delete-btn{
@@ -39,6 +85,7 @@ li{
   padding: 5px 10px;
   cursor: pointer;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 .delete-btn:hover{
@@ -46,33 +93,6 @@ li{
 }
 
 p{
-  color: #888;
-}
-
-.task-input{
-  margin: 20px auto;
-  width: 300px;
-  display: flex;
-  gap: 10px;
-}
-
-input{
-  flex: 1;
-  padding: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-button{
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-}
-
-button:hover{
-  background-color: #0056b3;
+  color: #bbb;
+  text-align: center;
 }
