@@ -37,6 +37,7 @@ input{
   border: 1px solid #444;
   background: #333;
   color: white;
+  margin-right: 10px;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -44,6 +45,7 @@ input{
 button{
   padding: 10px 15px;
   font-size: 16px;
+  margin-right: 20px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -90,6 +92,47 @@ li{
 
 .delete-btn:hover{
   background-color: #cc0000;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #444;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #218838;
 }
 
 p{
