@@ -7,6 +7,7 @@ function App() {
   const [newTask, setNewTask] = useState(''); //State to store the new task input
   const [editIndex, setEditIndex] = useState(null); // Track which task is being edited
   const [editText, setEditText] = useState(''); // Store the edited text
+  const [filter, setFilter] = useState('all'); //state to filter the current filter
 
   //Function to handle adding a new task
   const addTask = () => {
@@ -60,12 +61,25 @@ function App() {
           <button onClick={addTask}>Add Task</button>
         </div>
 
+        {/* Filter Buttons */}
+      <div className="filter-buttons">
+        <button onClick={() => setFilter('all')} className={filter === 'all' ? 'active' : ''}> All </button>
+        <button onClick={() => setFilter('completed')} className={filter === 'completed' ? 'active' : ''}> Completed </button>
+        <button onClick={() => setFilter('incomplete')} className={filter === 'incomplete' ? 'active' : ''}> Incomplete </button>
+      </div>
+
         <div className="task-list">
           {tasks.length === 0 ? (
             <p>No tasks added yet!</p>
           ) : (
             <ul>
-              {tasks.map((task, index) => (
+              {tasks
+              .filter((task) => {
+                if (filter === 'completed') return task.completed;
+                if (filter === 'incomplete') return !task.completed;
+                return true; // Show all tasks if filter is 'all'
+              })
+              .map((task, index) => (
               <li key={index}>
               {editIndex === index ? (
                 <>

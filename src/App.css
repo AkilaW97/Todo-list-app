@@ -64,6 +64,28 @@ button{
   transition: 0.3s;
 }
 
+.filter-buttons{
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.filter-buttons button{
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: white;
+  transition: 0.3s;
+}
+
+.filter-buttons button:hover{
+  background-color: #0056b3;
+}
+
 button:hover{
   background-color: #0056b3;
 }
