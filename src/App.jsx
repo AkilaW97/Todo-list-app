@@ -12,7 +12,7 @@ function App() {
   const addTask = () => {
     if(newTask.trim() !== ''){
       //Add the new task to the list
-      setTasks([...tasks, newTask])
+      setTasks([...tasks, {text: newTask, completed: false}]);
       //Clear the input field
       setNewTask('')
     }
@@ -31,10 +31,20 @@ function App() {
 
   //Function to save the edited task
  const saveEdit = (index) => {
-  const updatedTasks = tasks.map((task, i) => (i === index ? editText : task));
+  const updatedTasks = tasks.map((task, i) =>
+    i === index ? { ...task, text: editText } : task // Update only the text property
+  );
   setTasks(updatedTasks);
-  setEditIndex(null); //Exit edit mode
- }
+  setEditIndex(null); // Exit edit mode
+};
+
+ //Toggling the completion of a task
+ const toggleCompletion = (index) => {
+  const updatedTasks = tasks.map((task, i) =>
+    i === index ? { ...task, completed: !task.completed } : task
+  );
+  setTasks(updatedTasks);
+};
 
   return (
  
@@ -57,32 +67,45 @@ function App() {
             <ul>
               {tasks.map((task, index) => (
               <li key={index}>
-                {editIndex === index ? (
-                  <>
-                    <input
-                      type="text"
-                      value={editText}
-                      onChange={(e) => setEditText(e.target.value)}
-                      className="edit-input"
-                    />
-                    <button onClick={() => saveEdit(index)} className="save-btn">
-                      Save
+              {editIndex === index ? (
+                <>
+                  <input
+                    type="text"
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    className="edit-input"
+                  />
+                  <button onClick={() => saveEdit(index)} className="save-btn">
+                    Save
+                  </button>
+                </>
+              ) : (
+                <>
+                  <input
+                    type="checkbox"
+                    checked={task.completed} // Use task.completed instead of tasks[index].completed
+                    onChange={() => toggleCompletion(index)}
+                    className="complete-checkbox"
+                  />
+                  <span
+                    style={{
+                      textDecoration: task.completed ? 'line-through' : 'none', // Use task.completed
+                      color: task.completed ? '#888' : '#f0f0f0', // Use task.completed
+                    }}
+                  >
+                    {task.text} {/* Use task.text instead of tasks[index].text */}
+                  </span>
+                  <div>
+                    <button onClick={() => startEdit(index, task.text)} className="edit-btn">
+                      Edit
                     </button>
-                  </>
-                ) : (
-                  <>
-                    {task}
-                    <div>
-                      <button onClick={() => startEdit(index, task)} className="edit-btn">
-                        Edit
-                      </button>
-                      <button onClick={() => deleteTask(index)} className="delete-btn">
-                        Delete
-                      </button>
-                    </div>
-                  </>
-                )}
-              </li>
+                    <button onClick={() => deleteTask(index)} className="delete-btn">
+                      Delete
+                    </button>
+                  </div>
+                </>
+              )}
+            </li>
             ))}
             </ul>
           )}

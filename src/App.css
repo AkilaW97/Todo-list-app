@@ -42,6 +42,16 @@ input{
   font-size: 16px;
 }
 
+.complete-checkbox{
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+li span{
+  flex: 1;
+  margin-right: 10px;
+}
+
 button{
   padding: 10px 15px;
   font-size: 16px;
